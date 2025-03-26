@@ -1,0 +1,43 @@
+<html>
+    <head>
+        <title>Shadow Dom Example</title>
+        <style>
+            button{
+                background-color: red;
+                color: white;
+                padding: 10px 20px;
+                border: none;
+                border-radius: 5px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="shadow-host"></div>
+
+        <script>
+            const hostElement = document.querySelector("#shadow-host")
+
+            const shadowRoot = hostElement.attachShadow({mode: 'open'})
+            const newBtn = document.createElement('Button')
+            newBtn.textContent = 'Click Me (Shadow Btn)'
+
+            const style = document.createElement('style')
+            style.textContent= `
+            button{
+                background-color: blue;
+                color: yellow;
+                padding: 10px 20px;
+                border: none;
+                border-radius: 10px;
+                cursor: pointer;
+            }
+                button:hover{
+                background-color: darkblue;
+                }
+            `
+
+            shadowRoot.appendChild(newBtn)
+            shadowRoot.appendChild(style)
+        </script>
+    </body>
+</html>

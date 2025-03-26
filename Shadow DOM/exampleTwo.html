@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    /* Global styles applied to parent */
+    p {
+      color: blue;
+      font-size: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h2>Shadow DOM Example</h2>
+  
+  <!-- Regular paragraph in the parent DOM -->
+  <p>This is a parent paragraph.</p>
+  
+  <!-- Host element where Shadow DOM will be attached -->
+  <div id="shadow-host"></div>
+  
+  <script>
+    // Create shadow root
+    const host = document.querySelector("#shadow-host");
+    const shadowRoot = host.attachShadow({ mode: "open" });
+
+    // Add shadow DOM content
+    shadowRoot.innerHTML = `
+      <style>
+        p {
+          color: red;
+          font-size: 16px;
+        }
+      </style>
+      <p>This is inside Shadow DOM!</p>
+    `;
+  </script>
+</body>
+</html>
